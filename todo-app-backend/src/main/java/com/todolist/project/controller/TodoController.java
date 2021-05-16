@@ -38,9 +38,9 @@ public class TodoController {
         return ResponseEntity.ok(todo);
     }
 
-    // uptade todo rest api
+    // update todo rest api
     @PutMapping("/todos/{id}")
-    public ResponseEntity<Todo> uptadeTodo(@PathVariable Long id, @RequestBody Todo todoDetails) {
+    public ResponseEntity<Todo> updateTodo(@PathVariable Long id, @RequestBody Todo todoDetails) {
         Todo todo = todoReporsitory.findById(id).orElseThrow(() -> new ResourceNotFoundException("Todo not exist with id :" + id));
 
         todo.setTitle(todoDetails.getTitle());
